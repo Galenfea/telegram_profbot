@@ -4,15 +4,22 @@
 подсчитывает результат по методике академика Климова и сообщает
 к какой сфере деятельности наиболее склонен респондент.
 """
-# Импорт удобных библиотек для работы с ботом
+import os
+
+from dotenv import load_dotenv
 from telegram import Bot, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import (CommandHandler, ConversationHandler, Filters,
                           MessageHandler, Updater)
+
 # Импорт утверждений, которые будут предлагаться в тесте
 from statements import statements
 
+load_dotenv()
 # Токен, позволяющий осуществлять управление ботом.
-BOT_TOKEN = '5304115149:AAHEuCXNEEeJqnKvTLrxyyhnLnCjaR13Yak'
+# Из соображений безопасности передаётся через переменную окружения.
+# Для проверки работоспособности определите свою переменную окружения,
+# либо подставьте токен.
+BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 # Экземпляр класса Bot, который будет
 # использоваться для отправки сообщений
 bot = Bot(token=BOT_TOKEN)
@@ -285,7 +292,7 @@ def wrong_answer(update, context):
     # Получаем номер вопроса
     question_number = user_data.get('question_number', 0)
     # Сообщаем пользователю, что не поняли его ответа и просим повторить ввод
-    msg = ('Кажется, мы друг друга не поняли. Выберите 1 или 2.'
+    msg = ('Кажется, мы друг друга не поняли. Выберите 1 или 2. '
            'Давайте ещё раз.'
            )
     reply_keyboard = [['1', '2'], ['/cancel', ]]
