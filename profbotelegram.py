@@ -12,7 +12,7 @@ from telegram.ext import (CommandHandler, ConversationHandler, Filters,
                           MessageHandler, Updater)
 
 # Импорт утверждений, которые будут предлагаться в тесте
-from statements import statements
+from statements import answers, result_dic, statements
 
 load_dotenv()
 # Токен, позволяющий осуществлять управление ботом.
@@ -46,8 +46,6 @@ def sum_response(pool_counter):
     # где 0 - означает, что утверждение из этого вопроса не относится к
     # данной сфере, а 1 - означает, что утверждение из этого вопроса
     # добавляет очко данной сфере
-    from statements import answers
-
     # Итоговый счётчик, сообщает сколько очков набрала та или иная сфера,
     # позиция числа определяет название сферы:
     # 0 - природа, 1 - техника, 2 - люди, 3 - знаки, 4 - искусство
@@ -221,9 +219,6 @@ def result(update, context):
     из неё список профессиональных сфер с наибольшим количеством очков,
     после чего выводит эту информацию в телеграм.
     """
-    # Импорт в функцию  словаря, в котором содержится
-    # условный номер и описание профессиональной сферы.
-    from statements import result_dic
     user_data = context.user_data
 
     # Получаем и сохраняем в контекстный словарь последний
