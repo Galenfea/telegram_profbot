@@ -11,7 +11,10 @@ from telegram import Bot, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import (CommandHandler, ConversationHandler, Filters,
                           MessageHandler, Updater)
 
-# Импорт утверждений, которые будут предлагаться в тесте
+# Импорт: шаблонов с ответами, для проверки ответов респондента;
+# словаря, в котором содержится
+# условный номер и описание профессиональной сферы;
+# утверждений, которые будут предлагаться в тесте.
 from statements import answers, result_dic, statements
 
 load_dotenv()
