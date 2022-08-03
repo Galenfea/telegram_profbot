@@ -14,18 +14,55 @@
 
 ## Как запустить проект:
 
+__На автономном сервере windows:__
+
 ### Если у вас нет бота:
 - Найдите в Telegram бота @BotFather;
 - Начните диалог с ботом @BotFather: нажмите кнопку Start («Запустить»);
 - Отправьте команду /newbot и укажите параметры нового бота;
-- @BotFather отправит в чат токен такого вида: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11.
+- @BotFather отправит в чат токен такого вида: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11;
+- теперь вы - владелец бота.
 
 ### Если вы владелец бота:
 
-- Cкачать репозиторий https://github.com/Galenfea/homework_bot.git
-- Добавить в него файл .env с токеном вашего бота в формате:
+_Клонировать репозиторий и перейти в него в командной строке:_
+```
+git clone https://github.com/Galenfea/telegram_profbot.git
+```
+```
+cd telegram_profbot
+```
+
+_Cоздать и активировать виртуальное окружение:_
+```
+python -m venv venv
+```
+```
+source venv/Scripts/activate
+```
+
+_Установить зависимости из файла requirements.txt:_
+```
+python -m pip install --upgrade pip
+```
+```
+pip install -r requirements.txt
+```
+
+_Создать в репозитории файл .env с токеном вашего бота в формате:_
 ```
 TELEGRAM_BOT_TOKEN = 'ваш_токен'
+```
+__или__
+
+_В консоли импортируйте токены для вашего Телеграм бота:_
+```
+export TELEGRAM_BOT_TOKEN=<TELEGRAM_BOT_TOKEN>
+```
+
+_Запустить проект:_
+```
+python profbotelegram.py
 ```
 
 Если у вас нет своего бота, то для проверки работоспосбности программы воспользуйтесь ботом @CareerTestBot и демо-версией программы.
